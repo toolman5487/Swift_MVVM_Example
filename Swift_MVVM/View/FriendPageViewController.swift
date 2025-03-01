@@ -192,6 +192,10 @@ class FriendPageViewController: UIViewController {
         addButton.semanticContentAttribute = .forceRightToLeft
         addButton.contentHorizontalAlignment = .center
         addButton.contentEdgeInsets = UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20)
+        addButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: -8)
+        addButton.widthAnchor.constraint(greaterThanOrEqualToConstant: 120).isActive = true
+        addButton.setContentCompressionResistancePriority(.required, for: .horizontal)
+        addButton.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         addButton.translatesAutoresizingMaskIntoConstraints = false
         
         stackView.addArrangedSubview(imageView)
@@ -199,8 +203,10 @@ class FriendPageViewController: UIViewController {
         stackView.addArrangedSubview(subLabel)
         stackView.addArrangedSubview(addButton)
         
+        
         container.addSubview(stackView)
         NSLayoutConstraint.activate([
+            
             stackView.centerXAnchor.constraint(equalTo: container.centerXAnchor),
             stackView.centerYAnchor.constraint(equalTo: container.centerYAnchor),
             stackView.leadingAnchor.constraint(greaterThanOrEqualTo: container.leadingAnchor, constant: 16),
