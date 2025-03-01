@@ -244,7 +244,6 @@ class FriendPageViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        // 註冊鍵盤通知
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(keyboardWillShow(_:)),
                                                name: UIResponder.keyboardWillShowNotification,
@@ -257,7 +256,6 @@ class FriendPageViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        // 5) 在畫面即將消失時，移除鍵盤通知
         NotificationCenter.default.removeObserver(self,
                                                   name: UIResponder.keyboardWillShowNotification,
                                                   object: nil)
@@ -736,7 +734,6 @@ extension FriendPageViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         let trimmedText = searchText.trimmingCharacters(in: .whitespacesAndNewlines)
         if containsBopomofo(trimmedText) {
-            // 如果輸入中有注音符號，暫時顯示全部資料（避免 noData 畫面）
             friendListViewModel.filteredFriends = friendListViewModel.friendsList
             tableView.reloadData()
             noDataView.isHidden = true

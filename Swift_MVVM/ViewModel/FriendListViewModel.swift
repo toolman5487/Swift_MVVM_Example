@@ -70,7 +70,7 @@ class FriendListViewModel {
         }
         
         func fetchFriends() async throws -> [Friend] {
-            guard let url = URL(string: "https://dimanyen.github.io/friend3.json") else {
+            guard let url = URL(string: "https://dimanyen.github.io/friend4.json") else {
                 throw APIError.invalidURL
             }
             
