@@ -6,24 +6,27 @@
 //
 
 import UIKit
+extension UIViewController {
+    
+    func addNavigationItem() -> Void {
+        let atmBarButtonItem = UIBarButtonItem(image: UIImage(named: "icNavPinkWithdraw"),
+                                               style: .plain,
+                                               target: self,
+                                               action: nil)
 
-class UIViewControllerExtension: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        let transferBarButtonItem = UIBarButtonItem(image: UIImage(named: "icNavPinkTransfer"),
+                                                    style: .plain,
+                                                    target: self,
+                                                    action: nil)
+        
+        navigationItem.leftBarButtonItems = [atmBarButtonItem, transferBarButtonItem]
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "icNavPinkScan"),
+                                                               style: .plain,
+                                                               target: self,
+                                                               action: nil)
+       
+        
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

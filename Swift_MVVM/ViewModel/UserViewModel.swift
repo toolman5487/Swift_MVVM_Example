@@ -12,7 +12,7 @@ class UserViewModel {
     @Published var user: User?
     @Published var error: Error?
 
-    private let apiService = UserAPIService() // ✅ 內部建立 API 服務
+    private let apiService = UserAPIService()
     private var cancellables = Set<AnyCancellable>()
 
     func fetchUserInfo() {
@@ -26,7 +26,7 @@ class UserViewModel {
             } catch {
                 await MainActor.run {
                     self.error = error
-                    self.user = User(name: "未知", kokoid: "無資料") // ✅ 避免 UI 崩潰
+                    self.user = User(name: "未知", kokoid: "無資料")
                 }
             }
         }
