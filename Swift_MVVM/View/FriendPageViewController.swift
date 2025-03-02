@@ -12,7 +12,7 @@ class FriendPageViewController: UIViewController {
     
     // MARK: - ViewModels
     private let userViewModel = UserViewModel()             // 用戶資訊
-    private let friendListViewModel = FriendListViewModel()   // 好友列表
+    let friendListViewModel = FriendListViewModel()   // 好友列表
     private var cancellables = Set<AnyCancellable>()
     
     // MARK: - 好友/聊天切換的兩條約束
@@ -20,7 +20,7 @@ class FriendPageViewController: UIViewController {
     private var selectionIndicatorLeadingToChat: NSLayoutConstraint!
     
     // MARK: - 邀請區折疊與 userInfoView 動態高度
-    private var inviteContainerHeightConstraint: NSLayoutConstraint!
+    var inviteContainerHeightConstraint: NSLayoutConstraint!
     private var userInfoViewHeightConstraint: NSLayoutConstraint!
     private var bottomContainerTopConstraint: NSLayoutConstraint!
     private var isInviteExpanded = false
@@ -485,7 +485,7 @@ class FriendPageViewController: UIViewController {
     }
     
     // MARK: - 邀請區折疊／展開
-    @objc private func toggleInviteContainer() {
+    @objc func toggleInviteContainer() {
         let count = friendListViewModel.inviteFriendsList.count
         if count == 0 { return }
         
